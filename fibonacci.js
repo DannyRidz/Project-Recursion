@@ -14,4 +14,26 @@ function fibs(n) {
   return result;
 }
 
+function fibsRec(n) {
+  if (n === 0) {
+    return [];
+  }
+
+  if (n === 1) {
+    return [0];
+  }
+
+  if (n === 2) {
+    return [0, 1];
+  }
+
+  const previousNumbers = fibsRec(n - 1);
+  const nextNumber =
+    previousNumbers[previousNumbers.length - 1] +
+    previousNumbers[previousNumbers.length - 2];
+
+  return [...previousNumbers, nextNumber];
+}
+
 console.log(fibs(8));
+console.log(fibsRec(8));
